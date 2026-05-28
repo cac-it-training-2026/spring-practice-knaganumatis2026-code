@@ -1,5 +1,25 @@
 package jp.co.sss.practice.p03.q01.controller;
 
-public class Practice0301Controller {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+@Controller
+public class Practice0301Controller {
+	@RequestMapping(path = "/input", method = RequestMethod.GET)
+	public String input() {
+		return "practice03/01/input_form";
+	}
+
+	@RequestMapping(path = "/send/get_method", method = RequestMethod.GET)
+	public String sendGet(String color) {
+		System.out.println("get" + color);
+		return "practice03/01/get_result";
+	}
+
+	@RequestMapping(path = "/send/post_method", method = RequestMethod.POST)
+	public String sendPost(String color) {
+		System.out.println("post" + color);
+		return "practice03/01/post_result";
+	}
 }
